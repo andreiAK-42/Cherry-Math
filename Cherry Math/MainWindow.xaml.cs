@@ -23,9 +23,28 @@ namespace Cherry_Math
 
         private void grMain_Loaded(object sender, RoutedEventArgs e)
         {
+            string dependenciesPath = Path.Combine(Environment.CurrentDirectory, "Dependencies");
+            string modulesPath = Path.Combine(Environment.CurrentDirectory, "Dependencies");
+            string imagesPath = Path.Combine(Environment.CurrentDirectory, "Img");
+
+            CheckAndCreateFolder(dependenciesPath);
             ModuleManager.LoadDependencies(Path.Combine(Environment.CurrentDirectory, "Dependencies"));
+
+            CheckAndCreateFolder(modulesPath);
             moduleManager.LoadModules(this, Path.Combine(Environment.CurrentDirectory, "Modules"));
+            
+            CheckAndCreateFolder(imagesPath);
+
             _originalChildren.AddRange(grMain.Children.Cast<UIElement>());
+        }
+
+
+        private void CheckAndCreateFolder(string directoryPath)
+        {
+            if (!new DirectoryInfo(directoryPath).Exists)
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
         }
 
         private void item_selected(object sender, SelectionChangedEventArgs e)
