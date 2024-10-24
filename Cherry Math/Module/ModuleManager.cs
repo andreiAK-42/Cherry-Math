@@ -21,7 +21,6 @@ namespace Cherry_Math.Module
 
                     foreach (Type type in assembly.GetTypes())
                     {
-
                         Type iface = type.GetInterface("Interface.IModule");
 
                         if (null != iface)
@@ -41,7 +40,6 @@ namespace Cherry_Math.Module
 
             foreach (ModuleItem item in modules)
             {
-                //item. привзять к list module
                 window.listModules.Items.Add(item);
             }
         }

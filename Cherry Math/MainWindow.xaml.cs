@@ -6,9 +6,6 @@ using System.Windows.Controls;
 
 namespace Cherry_Math
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         ModuleManager moduleManager = new ModuleManager();
