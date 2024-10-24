@@ -15,7 +15,7 @@
 ; Фирма-разработчик
 #define   Publisher  "andreiAK"
 ; Сафт фирмы разработчика
-#define   URL        "https://github.com/andreiAK-42?tab=repositories"
+#define   URL        "https://github.com/andreiAK-42"
 ; Имя исполняемого модуля
 #define   ExeName    "Cherry Math.exe"
 
