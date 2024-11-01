@@ -22,15 +22,12 @@ namespace Cherry_Math
         {
             string dependenciesPath = Path.Combine(Environment.CurrentDirectory, "Dependencies");
             string modulesPath = Path.Combine(Environment.CurrentDirectory, "Dependencies");
-            string imagesPath = Path.Combine(Environment.CurrentDirectory, "Img");
 
             CheckAndCreateFolder(dependenciesPath);
             ModuleManager.LoadDependencies(Path.Combine(Environment.CurrentDirectory, "Dependencies"));
 
             CheckAndCreateFolder(modulesPath);
             moduleManager.LoadModules(this, Path.Combine(Environment.CurrentDirectory, "Modules"));
-            
-            CheckAndCreateFolder(imagesPath);
 
             _originalChildren.AddRange(grMain.Children.Cast<UIElement>());
         }

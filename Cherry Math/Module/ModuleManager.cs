@@ -28,7 +28,7 @@ namespace Cherry_Math.Module
                             IModule obj = (IModule)Activator.CreateInstance(type);
 
                             plugins.Add(obj);
-                            modules.Add(new ModuleItem(obj.GetModuleName(), obj.GetIcon(Environment.CurrentDirectory), plugins.Count - 1));
+                            modules.Add(new ModuleItem(obj.GetModuleName(), obj.GetIcon(), plugins.Count - 1));
                         }
                     }
                 }
