@@ -1,39 +1,59 @@
-﻿using Interface;
+﻿using Cherry_Math.Module;
+using System.Drawing;
 using System.IO;
 using System.Windows;
-using Cherry_Math.Module;
 using System.Windows.Controls;
+using System.Windows.Interop;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using Path = System.IO.Path;
 
 namespace Cherry_Math
 {
     public partial class MainWindow : Window
     {
-        ModuleManager moduleManager = new ModuleManager();
-        private List<UIElement> _originalChildren = new List<UIElement>();
-        private bool MainWindowActive = true;
+        public ModuleManager moduleManager = new ModuleManager();
 
         public MainWindow()
         {
             InitializeComponent();
-            MainWindowActive = true;
+            
+            this.Width = 100;
+            DoubleAnimation animation = new DoubleAnimation(1220, TimeSpan.FromSeconds(1.6));
+            animation.From = 100;
+
+            animation.Completed += (sender, e) =>
+            {
+                this.MinHeight = 720;
+                this.MinWidth = 1220;
+            };
+
+            this.BeginAnimation(Window.WidthProperty, animation);
         }
 
         private void grMain_Loaded(object sender, RoutedEventArgs e)
         {
-            string dependenciesPath = Path.Combine(Environment.CurrentDirectory, "Dependencies");
             string modulesPath = Path.Combine(Environment.CurrentDirectory, "Dependencies");
-
-            CheckAndCreateFolder(dependenciesPath);
-            ModuleManager.LoadDependencies(Path.Combine(Environment.CurrentDirectory, "Dependencies"));
-
+            
             CheckAndCreateFolder(modulesPath);
             moduleManager.LoadModules(this, Path.Combine(Environment.CurrentDirectory, "Modules"));
 
-            _originalChildren.AddRange(grMain.Children.Cast<UIElement>());
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resource));
+            
+            Bitmap icon = (Bitmap)resources.GetObject("shutdown.Image");
+            ImageBrush ib = new ImageBrush();
+            ib.ImageSource = Imaging.CreateBitmapSourceFromHBitmap(icon.GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromWidthAndHeight(icon.Width, icon.Height)); ;
+            BtnCloseWindow.Background = ib;
         }
 
+        public void ButtonOpenModule_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            ((Window)moduleManager.pluginsDictionary[button.Content.ToString()].Show()).ShowDialog();
+        }
 
-        private void CheckAndCreateFolder(string directoryPath)
+        public void CheckAndCreateFolder(string directoryPath)
         {
             if (!new DirectoryInfo(directoryPath).Exists)
             {
@@ -41,48 +61,14 @@ namespace Cherry_Math
             }
         }
 
-        private void item_selected(object sender, SelectionChangedEventArgs e)
+        private void WindowClosing(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (sender is ListBox listBox && listBox.SelectedItem != null)
-            {
-                IModule selectedItem = moduleManager.plugins[((ModuleItem)listBox.SelectedItem).Index];
-
-                grMain.Children.Clear();
-                grMain.Children.Add((UIElement)selectedItem.Show());
-                MainWindowActive = false;
-            }
+            this.Close();
         }
 
-        private void change_list_size(object sender, SizeChangedEventArgs e)
+        private void OpenThreeModule(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            foreach (var item in listModules.Items)
-            {
-                if (item is ModuleItem moduleItem)
-                {
-                    moduleItem.Width = listModules.ActualWidth - 15;
-                    moduleItem.ModuleName.Width = listModules.ActualWidth - 15;
-                }
-            }
-        }
-
-        private void MyWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (!MainWindowActive)
-            {
-                RestoreInitialState();
-                e.Cancel = true;
-            }
-        }
-
-        private void RestoreInitialState()
-        {
-            grMain.Children.Clear();
-
-            foreach (var item in _originalChildren)
-            {
-                grMain.Children.Add(item);
-            }
-            MainWindowActive = true;
+            ((Window)moduleManager.pluginsDictionary[NameModuleThree.Text].Show()).ShowDialog();
         }
     }
 }

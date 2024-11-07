@@ -4,9 +4,286 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Cherry Math" Height="450" Width="800" MinWidth="800" MinHeight="450" Closing="MyWindow_Closing">
-    <Grid x:Name="grMain" Background="#FFF0F0F0" Loaded="grMain_Loaded" Margin="0,0,0,-16">
-        <Label Content="🍒Cherry Math" HorizontalAlignment="Center" Height="81" VerticalAlignment="Top" Width="340" Background="{x:Null}" Foreground="#FF333333" FontSize="48" FontFamily="Segoe UI"/>
-        <ListBox x:Name="listModules" Margin="160,86,160,28" SelectionChanged="item_selected" IsSynchronizedWithCurrentItem="False" SizeChanged="change_list_size" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" />
+        Title="Cherry Math" 
+        Height="720"
+        Width="1220"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Loaded="grMain_Loaded" >
+        <!--Background-->
+        <Border Background="#1C1D31"
+                CornerRadius="25"
+                BorderThickness="2"
+                BorderBrush="White"/>
+
+        <Grid>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50 *" />
+                    <ColumnDefinition Width="280 *" />
+                    <ColumnDefinition Width="280 *" />
+                    <ColumnDefinition Width="280 *" />
+                    <ColumnDefinition Width="280 *" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="140" />
+                    <RowDefinition Height="360" />
+                    <RowDefinition Height="170" />
+                    <RowDefinition Height="70" />
+                </Grid.RowDefinitions>
+
+                <!--Panel 1-->
+                <Border x:Name="panelOne" Grid.Row="1"
+                    Grid.Column="1"
+                    CornerRadius="20"
+                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240">
+
+                    <Border.Background>
+
+                        <LinearGradientBrush StartPoint="0.75, 0"
+                             EndPoint="0, 1">
+
+                            <GradientStop Color="#DF208F"
+                                      Offset="0.1" />
+
+                            <GradientStop Color="#DFCF20"
+                                      Offset="0.8" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Grid>
+                        <Border Background="White"
+                            Height="200"
+                            Width="200"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            CornerRadius="20"
+                            Opacity="0.3"
+                            Margin="10, 10, 0, 0"/>
+
+                        <TextBlock Text="Метод &#x0a;Ньютона"
+                                Foreground="White"
+                                FontFamily="Oswald"
+                                FontSize="32"
+                                FontStyle="Normal"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                                Margin="30, 20, 0, 0" />
+
+                    </Grid>
+                </Border>
+
+                <!--Panel 2-->
+                <Border x:Name="panelTwo" Grid.Row="1"
+                    Grid.Column="2"
+                    CornerRadius="20"
+                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240">
+
+                    <Border.Background>
+
+                        <LinearGradientBrush StartPoint="0.75, 0"
+                   EndPoint="0, 1">
+
+                            <GradientStop Color="#27BDE9"
+                            Offset="0.1" />
+
+                            <GradientStop Color="#DFCF20"
+                            Offset="0.8" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Grid>
+                        <Border Background="White"
+                  Height="200"
+                  Width="200"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  CornerRadius="20"
+                  Opacity="0.3"
+                  Margin="10, 10, 0, 0"/>
+
+                        <TextBlock Text="Метод &#x0a;Золотого &#x0a;Сечения"
+                      Foreground="White"
+                      FontFamily="Oswald"
+                      FontSize="32"
+                      FontStyle="Normal"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Margin="30, 20, 0, 0" />
+
+                    </Grid>
+                </Border>
+
+                <!--Panel 3-->
+                <Border x:Name="panelThree" Grid.Row="1"
+                    Grid.Column="3"
+                    CornerRadius="20"
+                    Margin="0,20,20,20" Cursor="Hand" MouseDown="OpenThreeModule" HorizontalAlignment="Right" Width="240">
+
+                    <Border.Background>
+
+                        <LinearGradientBrush StartPoint="0.75, 0"
+                                         EndPoint="0, 1">
+
+                            <GradientStop Color="#F96100"
+                                      Offset="0.1" />
+
+                            <GradientStop Color="#E70875"
+                 Offset="0.8" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Grid>
+                        <Border Background="White"
+                             Height="200"
+                             Width="190"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             CornerRadius="20"
+                             Opacity="0.3"
+                             Margin="10, 10, 0, 0"/>
+
+                        <TextBlock x:Name="NameModuleThree" Text="Методы сортировки"
+                               Foreground="White"
+                               FontFamily="Oswald"
+                               TextWrapping ="Wrap"
+                               FontSize="32"
+                               FontStyle="Normal"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Margin="20,16,0,0" Height="116" Width="180" />
+                    </Grid>
+                </Border>
+
+                <!--Panel 4-->
+                <Border x:Name="panelFour" Grid.Row="1"
+                    Grid.Column="4"
+                    CornerRadius="20"
+                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240">
+
+                    <Border.Background>
+
+                        <LinearGradientBrush StartPoint="0.75, 0"
+                                         EndPoint="0, 1">
+
+                            <GradientStop Color="#1880ff"
+                                      Offset="0.1" />
+
+                            <GradientStop Color="#ff33f5"
+                 Offset="0.8" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Grid>
+                        <Border Background="White"
+                             Height="200"
+                             Width="200"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             CornerRadius="20"
+                             Opacity="0.3"
+                             Margin="10, 10, 0, 0"/>
+
+                        <TextBlock Text="Метод &#x0a;Дихотомии"
+                               Foreground="White"
+                               FontFamily="Oswald"
+                               FontSize="32"
+                               FontStyle="Normal"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Margin="30, 20, 0, 0" />
+                    </Grid>
+                </Border>
+
+
+
+                <!--Header-->
+
+                <TextBlock Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"
+                       Text="C H E R R Y  M A T H"
+                       Foreground="#CDD7E0"
+                       FontFamily="Oswald"
+                       FontSize="36"
+                       Margin="20, 50, 0, 0" />
+
+                <TextBlock Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="2"
+                       Text="M A D E  B Y  A N D R E I A K - 4 2"
+                       Foreground="#A688C8"
+                       FontFamily="Roboto"
+                       FontSize="12"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Margin="0, 0, 216, 23" />
+
+
+                <!--Dock bar -->
+
+                <Grid Grid.Row="2"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="4">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="740"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="1"
+                        Background="#323345"
+                        CornerRadius="10, 10, 0, 0"
+                        Margin="0, 85, 0, 0">
+
+                        <Grid x:Name="gridModules" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+
+                        </Grid>
+
+                    </Border>
+
+
+                </Grid>
+
+                <!--Header Buttons-->
+
+                <Grid x:Name="BtnCloseWindow" Grid.Row="0"
+                  Grid.Column="4"
+                  Grid.ColumnSpan="1"
+                  Width="50"
+                  Height="50"
+                  HorizontalAlignment="Right"
+                  Cursor="Hand"
+                  MouseDown="WindowClosing">
+
+
+                </Grid>
+            </Grid>
+
+        </Grid>
     </Grid>
+
 </Window>
