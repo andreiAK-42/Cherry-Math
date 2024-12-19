@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -32,14 +33,18 @@ namespace Cherry_Math
             this.BeginAnimation(Window.WidthProperty, animation);
         }
 
+        private void TextMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+
         private void grMain_Loaded(object sender, RoutedEventArgs e)
         {
-            string modulesPath = Path.Combine(Environment.CurrentDirectory, "Dependencies");
-            
-            CheckAndCreateFolder(modulesPath);
-            moduleManager.LoadModules(this, Path.Combine(Environment.CurrentDirectory, "Modules"));
-
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resource));
+            moduleManager.LoadModules(this, Path.Combine(Environment.CurrentDirectory, "Modules"));
             
             Bitmap icon = (Bitmap)resources.GetObject("shutdown.Image");
             ImageBrush ib = new ImageBrush();
@@ -53,7 +58,7 @@ namespace Cherry_Math
             ((Window)moduleManager.pluginsDictionary[button.Content.ToString()].Show()).ShowDialog();
         }
 
-        public void CheckAndCreateFolder(string directoryPath)
+        public static void CheckAndCreateFolder(string directoryPath)
         {
             if (!new DirectoryInfo(directoryPath).Exists)
             {
@@ -61,12 +66,12 @@ namespace Cherry_Math
             }
         }
 
-        private void WindowClosing(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void WindowClosing(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }
 
-        private void OpenThreeModule(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void OpenThreeModule(object sender, MouseButtonEventArgs e)
         {
             ((Window)moduleManager.pluginsDictionary[NameModuleThree.Text].Show()).ShowDialog();
         }

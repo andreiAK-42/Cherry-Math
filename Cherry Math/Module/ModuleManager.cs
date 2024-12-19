@@ -29,7 +29,7 @@ namespace Cherry_Math.Module
                 try
                 {
                     LoadDependencies(Path.Combine(Environment.CurrentDirectory, "Dependencies"));
-                    window.CheckAndCreateFolder(Path.Combine(Environment.CurrentDirectory, "Dependencies"));
+                    MainWindow.CheckAndCreateFolder(Path.Combine(Environment.CurrentDirectory, "Dependencies"));
 
                     Assembly assembly = Assembly.LoadFile(file);
 

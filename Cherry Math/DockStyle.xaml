@@ -28,10 +28,10 @@
                 <BeginStoryboard>
                     <Storyboard>
                         <DoubleAnimation Storyboard.TargetProperty="(Button.Width)"
-                                         To="65"
+                                         To="60"
                                          Duration="0:0:0.3"/>
                         <DoubleAnimation Storyboard.TargetProperty="(Button.Height)"
-                                         To="65"
+                                         To="60"
                                          Duration="0:0:0.3" />
                     </Storyboard>
                 </BeginStoryboard>

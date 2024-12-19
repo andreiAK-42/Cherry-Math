@@ -22,7 +22,6 @@
 
         <Grid>
 
-
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50 *" />
@@ -214,7 +213,7 @@
                        Foreground="#CDD7E0"
                        FontFamily="Oswald"
                        FontSize="36"
-                       Margin="20, 50, 0, 0" />
+                       Margin="20, 50, 0, 0" MouseDown="TextMouseDown" />
 
                 <TextBlock Grid.Row="0"
                        Grid.Column="1"
