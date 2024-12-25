@@ -43,7 +43,7 @@
                 <Border x:Name="panelOne" Grid.Row="1"
                     Grid.Column="1"
                     CornerRadius="20"
-                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240">
+                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240" Cursor="Hand" MouseDown="OpenThreeModule">
 
                     <Border.Background>
 
@@ -68,14 +68,15 @@
                             Opacity="0.3"
                             Margin="10, 10, 0, 0"/>
 
-                        <TextBlock Text="Метод &#x0a;Ньютона"
+                        <TextBlock Text="Метод Ньютона"
                                 Foreground="White"
                                 FontFamily="Oswald"
                                 FontSize="32"
                                 FontStyle="Normal"
+                                TextWrapping="Wrap"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="Left"
-                                Margin="30, 20, 0, 0" />
+                                Margin="30, 20, 0, 0" Height="177" Width="164" />
 
                     </Grid>
                 </Border>
@@ -84,7 +85,7 @@
                 <Border x:Name="panelTwo" Grid.Row="1"
                     Grid.Column="2"
                     CornerRadius="20"
-                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240">
+                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240" Cursor="Hand" MouseDown="OpenThreeModule">
 
                     <Border.Background>
 
@@ -109,14 +110,15 @@
                   Opacity="0.3"
                   Margin="10, 10, 0, 0"/>
 
-                        <TextBlock Text="Метод &#x0a;Золотого &#x0a;Сечения"
+                        <TextBlock Text="Метод золотого сечения"
                       Foreground="White"
                       FontFamily="Oswald"
                       FontSize="32"
+                      TextWrapping="Wrap"
                       FontStyle="Normal"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Left"
-                      Margin="30, 20, 0, 0" />
+                      Margin="19,20,0,0" Height="178" Width="175" />
 
                     </Grid>
                 </Border>
@@ -158,7 +160,7 @@
                                FontStyle="Normal"
                                VerticalAlignment="Top"
                                HorizontalAlignment="Left"
-                               Margin="20,16,0,0" Height="116" Width="180" />
+                               Margin="20,16,0,0" Height="174" Width="180" />
                     </Grid>
                 </Border>
 
@@ -166,7 +168,7 @@
                 <Border x:Name="panelFour" Grid.Row="1"
                     Grid.Column="4"
                     CornerRadius="20"
-                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240">
+                    Margin="0,20,20,20" HorizontalAlignment="Right" Width="240" MouseDown="OpenThreeModule" Cursor="Hand">
 
                     <Border.Background>
 
@@ -191,14 +193,15 @@
                              Opacity="0.3"
                              Margin="10, 10, 0, 0"/>
 
-                        <TextBlock Text="Метод &#x0a;Дихотомии"
+                        <TextBlock Text="Метод дихотомии"
                                Foreground="White"
                                FontFamily="Oswald"
                                FontSize="32"
+                               TextWrapping="Wrap"
                                FontStyle="Normal"
                                VerticalAlignment="Top"
                                HorizontalAlignment="Left"
-                               Margin="30, 20, 0, 0" />
+                               Margin="22,20,0,0" Height="177" Width="169" />
                     </Grid>
                 </Border>
 

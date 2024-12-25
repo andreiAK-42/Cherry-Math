@@ -16,6 +16,8 @@ namespace Cherry_Math
     {
         public ModuleManager moduleManager = new ModuleManager();
 
+        public Dictionary<Border, string> cardBorder = new Dictionary<Border, string>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +33,11 @@ namespace Cherry_Math
             };
 
             this.BeginAnimation(Window.WidthProperty, animation);
+
+            cardBorder.Add(this.panelOne, "Метод Ньютона");
+            cardBorder.Add(this.panelTwo, "Метод золотого сечения");
+            cardBorder.Add(this.panelThree, "Методы сортировки");
+            cardBorder.Add(this.panelFour, "Метод дихотомии");
         }
 
         private void TextMouseDown(object sender, MouseButtonEventArgs e)
@@ -73,7 +80,7 @@ namespace Cherry_Math
 
         private void OpenThreeModule(object sender, MouseButtonEventArgs e)
         {
-            ((Window)moduleManager.pluginsDictionary[NameModuleThree.Text].Show()).ShowDialog();
+            ((Window)moduleManager.pluginsDictionary[cardBorder[sender as Border]].Show()).ShowDialog();
         }
     }
 }

@@ -11,7 +11,7 @@
 ; Имя приложения
 #define   Name       "Cherry Math"
 ; Версия приложения
-#define   Version    "1.0.0"
+#define   Version    "2.0.0"
 ; Фирма-разработчик
 #define   Publisher  "andreiAK"
 ; Сафт фирмы разработчика
@@ -46,6 +46,9 @@ OutputBaseFileName=CherryMath-setup
 
 ; Файл иконки
 SetupIconFile=C:\Users\XLEB_YSHEK\Downloads\cherryIcon.ico
+
+; Файл лицензии
+LicenseFile=C:\Users\XLEB_YSHEK\Downloads\license.txt
 
 ; Параметры сжатия
 Compression=lzma
